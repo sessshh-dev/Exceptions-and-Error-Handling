@@ -5,7 +5,7 @@
 
 class EquilateralTriangle : public Triangle {
 public:
-    explicit EquilateralTriangle(int a);
+    explicit EquilateralTriangle(int a, int b, int c, int A, int B, int C);
 };
 
 #endif

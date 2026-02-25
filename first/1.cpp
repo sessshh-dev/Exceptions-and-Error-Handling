@@ -1,5 +1,6 @@
 #include <iostream>
 #include "bad_length.h"
+#include "function.h"
 
 int main(){
     int forbidden_length;
@@ -8,17 +9,17 @@ int main(){
     std::string word;
 
     while (true){
-        std::cout << "Введите слово: ";
-        std::cin >> word;
-
         try{
+            std::cout << "Введите слово: ";
+            std::cin >> word;
+
             int len = function(word, forbidden_length);
             std::cout << "Длина слова \"" << word << "\" равна " << len << std::endl;
-        }
-        catch (const char*){
-            std::cout << "Вы ввели слово запретной длины! До свидания" << std::endl;
-            break;
-        }
+            }
+            catch (const bad_length& i){
+                std::cout << i.what() << "До свидания" << std::endl;
+                break;
+            }
     }
 
     return EXIT_SUCCESS;
